@@ -18,6 +18,7 @@
 #include "MQTT.h"
 #include "SparkJson.h"
 #include "elapsedMillis.h"
+#include "google-maps-device-locator.h"
 
 #include "lib1.h"
 
@@ -118,6 +119,9 @@ int outputD4 = LOW;
 int outputD5 = LOW;
 int outputD6 = LOW;
 
+// google maps class
+GoogleMapsDeviceLocator locator;
+
 void setup(void)
 {
 
@@ -152,10 +156,28 @@ void setup(void)
   readFromEeprom();
   //then update outputs accordingly
   updateOutputs();
+
+  // google maps callback
+  // Scan for visible networks and publish to the cloud every 30 seconds
+  // Pass the returned location to be handled by the locationCallback() method
+  // change the 30 seconds here to publish location as needed
+  locator.withSubscribe(locationCallback).withLocatePeriodic(30);
+  
+}
+
+// google maps callback declaration
+void locationCallback(float lat, float lon, float accuracy) {
+  // Handle the returned location data for the device. This method is passed three arguments:
+  // - Latitude
+  // - Longitude
+  // - Accuracy of estimated location (in meters)
 }
 
 void loop(void)
 {
+
+  // google maps loop function call
+  locator.loop();
 
 #ifdef DEBUG_SERIAL
   Serial.print(loopcount++);
