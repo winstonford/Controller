@@ -18,11 +18,7 @@
 #include "MQTT.h"
 #include "SparkJson.h"
 #include "elapsedMillis.h"
-<<<<<<< HEAD
-=======
 #include "google-maps-device-locator.h"
-
->>>>>>> master
 #include "lib1.h"
 
 PRODUCT_ID(3104);
@@ -168,7 +164,7 @@ void setup(void)
   // Pass the returned location to be handled by the locationCallback() method
   // change the 30 seconds here to publish location as needed
   locator.withSubscribe(locationCallback).withLocatePeriodic(30);
-  
+
 }
 
 // google maps callback declaration
