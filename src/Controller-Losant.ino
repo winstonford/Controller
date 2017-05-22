@@ -18,8 +18,10 @@
 #include "MQTT.h"
 #include "SparkJson.h"
 #include "elapsedMillis.h"
-
 #include "lib1.h"
+
+PRODUCT_ID(3104);
+PRODUCT_VERSION(2);
 
 #define APP_NAME "CanopyController"
 #define FIRMWARE_VERSION "0.25"
