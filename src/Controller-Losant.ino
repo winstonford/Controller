@@ -405,12 +405,26 @@ I4 = 1.9;
   data["T1"] = T1;
   data["T2"] = T2;
   data["T3"] = T3;
+  data["V1"] = V1;
+  data["I1"] = I1;
   data["V2"] = V2;
   data["I2"] = I2;
   data["V3"] = V3;
   data["I3"] = I3;
   data["V4"] = V4;
   data["I4"] = I4;
+  data["V5"] = V5;
+  data["I5"] = I5;
+  data["V6"] = V6;
+  data["I6"] = I6;
+  data["V7"] = V7;
+  data["I7"] = I7;
+  data["V8"] = V8;
+  data["I8"] = I8;
+  data["V9"] = V9;
+  data["I9"] = I9;
+  data["lat"] = lat;
+  data["lon"] = lon;
 
   // Get JSON string.
   char buffer[500];
