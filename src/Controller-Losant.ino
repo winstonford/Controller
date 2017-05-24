@@ -121,6 +121,15 @@ int outputD4 = LOW;
 int outputD5 = LOW;
 int outputD6 = LOW;
 
+// Global vars to store Lat and Long from Google
+
+float Glat = 0;
+float Glon = 0;
+float lat = 0;
+float lon = 0;
+float GPS = 0;
+
+
 // google maps class
 GoogleMapsDeviceLocator locator;
 
@@ -159,6 +168,7 @@ void setup(void)
   //then update outputs accordingly
   updateOutputs();
 
+
   // google maps callback
   // Scan for visible networks and publish to the cloud every 30 seconds
   // Pass the returned location to be handled by the locationCallback() method
@@ -173,6 +183,8 @@ void locationCallback(float lat, float lon, float accuracy) {
   // - Latitude
   // - Longitude
   // - Accuracy of estimated location (in meters)
+  Glat = lat;
+  Glon = lon;
 }
 
 void loop(void)
@@ -208,6 +220,7 @@ void loop(void)
   float T1 = 0;
   float T2 = 0;
   float T3 = 0;
+
   // String for holding the data output ready to publish
   String outstring;
 
@@ -423,8 +436,9 @@ I4 = 1.9;
   data["I8"] = I8;
   data["V9"] = V9;
   data["I9"] = I9;
-  data["lat"] = lat;
-  data["lon"] = lon;
+  data["lat"] = Glat;
+  data["lon"] = Glon;
+  data["lat","lon"] = GPS;
 
   // Get JSON string.
   char buffer[500];
