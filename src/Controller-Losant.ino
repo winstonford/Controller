@@ -125,9 +125,12 @@ int outputD6 = LOW;
 
 float Glat = 0;
 float Glon = 0;
-float lat = 0;
-float lon = 0;
-float GPS = 0;
+String GPS = "";
+
+
+
+
+
 
 
 // google maps class
@@ -185,6 +188,7 @@ void locationCallback(float lat, float lon, float accuracy) {
   // - Accuracy of estimated location (in meters)
   Glat = lat;
   Glon = lon;
+  GPS = String(lat) + ", " String(lon);
 }
 
 void loop(void)
@@ -436,9 +440,7 @@ I4 = 1.9;
   data["I8"] = I8;
   data["V9"] = V9;
   data["I9"] = I9;
-  data["lat"] = Glat;
-  data["lon"] = Glon;
-  data["lat","lon"] = GPS;
+  data["GPS"] = GPS;
 
   // Get JSON string.
   char buffer[500];
